@@ -13,7 +13,7 @@ export class TarjetaCredito {
             this.numeroTarjeta=numeroTarjeta;
             this.fechaExpiracion=fechaExpiracion;
             this.cvv=cvv;
-            this.fechaCreacion= new Date;
-            this.fechaActualizacion= new Date;
+            this.fechaCreacion= new Date();
+            this.fechaActualizacion= new Date();
     }
 }
