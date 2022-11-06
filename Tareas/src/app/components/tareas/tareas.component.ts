@@ -14,6 +14,9 @@ export class TareasComponent implements OnInit {
   ngOnInit(): void {
   }
   agregarTarea(): void {
+    if(this.nombreTarea==''){
+      return;
+    }
     const TAREA: Tarea = {
       nombre: this.nombreTarea,
       estado: false
