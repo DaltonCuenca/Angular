@@ -1,0 +1,36 @@
+<div class="contenedor">
+    <!-- * * * ** * * * *INTERPOLACION * * * * * * * * * * * * -->
+    <div class="INTERPOLACION uno">
+        <h2>INTERPOLACION</h2>
+        <h5>El nombre cambia en 3 segundos: {{texto}}</h5>
+        <p>Tambien se puede hacer una suma de 2 + 2 = {{2+2}}</p>
+        <p>Ocon una funcion 10 + 20 = {{getSuma(10, 20)}}</p>
+    </div>
+
+
+    <!-- * * * ** * * * *PROPERTY BINDING * * * * * * * * * * * * -->
+    <div class="PROPERTY-BINDING uno">
+        <h2>PROPERTY BINDING</h2><br><br>
+        <input type="text" [placeholder]="textoPlaceholder" [disabled]="deshabilitado">
+        <img [src]="img" alt="">
+    </div>
+
+
+    <!-- * * * ** * * * *EVENT BINDING * * * * * * * * * * * * -->
+    <div class="EVENT-BINDING uno">
+        <h2>EVENT BINDING</h2>
+        <h5>Modificar un texto con un boton</h5>
+        <p>Texto a modificar: {{textoBoton}}</p>
+        <button class="btn btn-primary" (click)="cambiarTexto()">Click me</button>
+    </div>
+
+
+    <!-- * * * ** * * * * TWO WAY DATA BINDING * * * * * * * * * * * * -->
+    <div class="TWO-WAY-DATA-BINDING uno">
+        <h2>TWO WAY DATA BINDING</h2>
+        <h5>Modificar un texto a tiempo real</h5>
+        <p>texto a Modificar: {{textoInput}}</p>
+        <input type="text" [placeholder]="textoPlaceholder" [(ngModel)]="textoInput">
+        <!--Es necesario agregar en las imprtaciones del archivo app.module.ts FormsModule-->
+    </div>
+</div>

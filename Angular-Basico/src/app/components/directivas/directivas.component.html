@@ -1,0 +1,137 @@
+<div class="contenedor">
+    <div class="ngFor cuadro">
+        <!---------------*ngFor-------------->
+        <h2>*ngFor</h2>
+        <h5>Listado de estudiantes</h5>
+        <br>
+        <table class="table">
+            <thead>
+                <th>Nro</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let estudiantes of listEstudiantes; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{estudiantes.nombre}}</td>
+                    <td>{{estudiantes.estado}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="ngfi cuadro">
+        <!---------------*ngIf-------------->
+        <h2>*ngIf</h2>
+        <h5>Borrar tabla</h5>
+        <button class="btn btn-primary" (click)="toggle()">Toggle</button>
+        <table class="table" *ngIf="listEstudiantes.length>0 && mostrarTabla">
+            <thead>
+                <th>Nro</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Borrar</td>
+                    <td>Borrar</td>
+                    <td>Borrar</td>
+                </tr>
+                <tr>
+                    <td>Borrar</td>
+                    <td>Borrar</td>
+                    <td>Borrar</td>
+                </tr>
+                <tr>
+                    <td>Borrar</td>
+                    <td>Borrar</td>
+                    <td>Borrar</td>
+                </tr>
+            </tbody>
+        </table>
+        <h5 *ngIf="mostrarTabla===false" class="mt-5">Tabla oculta</h5>
+        <h5 *ngIf="listEstudiantes.length===0" class="mt-4">No se encontraron registrpos</h5>
+    </div>
+    <div class="ngStyle cuadro">
+        <!---------------*ngStyle-------------->
+        <h2>*ngStyle</h2>
+        <h5>Estilos a estudiantes</h5>
+        <br>
+        <table class="table">
+            <thead>
+                <th>Nro</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let estudiantes of listEstudiantes; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{estudiantes.nombre}}</td>
+                    <td [ngStyle]="{'color': estudiantes.estado==='Promocionado'?'green':'black'}">
+                        {{estudiantes.estado}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <!--
+           establecer el color : (If) ? (color de if) : (color de else) 
+        -->
+    </div>
+    <div class="ngClass cuadro">
+        <!---------------*ngClass-------------->
+        <h2>*ngClass</h2>
+        <h5>Estilos a estudiantes</h5>
+        <br>
+        <table class="table">
+            <thead>
+                <th>Nro</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let estudiantes of listEstudiantes; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{estudiantes.nombre}}</td>
+                    <td>
+                        <span
+                            [ngClass]="estudiantes.estado=== 'Promocionado' ? 'bg-primary badge':'badge bg-secondary'">{{estudiantes.estado}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--
+           (If) ? calse de if : clase de else 
+        -->
+    </div>
+    <div class="ngSwitch cuadro">
+        <!---------------*ngStyle-------------->
+        <h2>*ngStyle</h2>
+        <h5>Estilos a estudiantes</h5>
+        <br>
+        <table class="table">
+            <thead>
+                <th>Nro</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let estudiantes of listEstudiantes; let i = index"  [ngSwitch]="estudiantes.estado">
+                    <td>{{i+1}}</td>
+                    <td>{{estudiantes.nombre}}</td>
+                    <td>
+                        <span *ngSwitchCase="'Promocionado'" class="bg-primary badge">
+                            {{estudiantes.estado}}
+                        </span>
+                        <span *ngSwitchCase="'Regular'" class="bg-success badge">
+                            {{estudiantes.estado}}
+                        </span>
+                        <span *ngSwitchCase="'Libre'" class="bg-dark badge">
+                            {{estudiantes.estado}}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--
+           establecer el color : (If) ? (color de if) : (color de else) 
+        -->
+    </div>
+</div>
